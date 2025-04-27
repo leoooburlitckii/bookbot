@@ -16,3 +16,19 @@ def number_of_each_character (text):
             character_counter[character_low] += 1
     return character_counter
 
+def sorted_list (dict):
+    list = []
+    for character in dict:
+        dict_zalupka = {"name":0, "num":0}
+        dict_zalupka["name"] = character
+        dict_zalupka["num"] = dict[character]
+        list.append(dict_zalupka)
+    def key_for_sort (dict):
+        return dict["num"]
+    list.sort(reverse=True, key=key_for_sort)
+    return list
+
+
+
+    
+
