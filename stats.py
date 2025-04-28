@@ -14,17 +14,9 @@ def number_of_each_character (text: str) -> dict[str,int]:
             character_counter[character_low] = character_counter.get(character_low, 0) + 1           
     return character_counter
 
-
-
-
 def from_dict_to_sorted_list (data: dict[str,int]) -> list[tuple[str,int]]:
-    print(data.items())
     def key_for_sort (data1: tuple):
         return data1[1]
     sorted_list = sorted(data.items(),key=key_for_sort, reverse=True)
     return sorted_list
-
-
-
-    
 
