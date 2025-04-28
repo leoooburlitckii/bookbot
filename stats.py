@@ -1,32 +1,28 @@
-def get_book_text(path):
+def get_book_text(path: str) -> str:
     with open(path) as f:
         return f.read()
 
-def count_of_words(text):
+def count_of_words(text: str) -> int:
     words_list = text.split()
     return len(words_list)
 
-def number_of_each_character (text):
+def number_of_each_character (text: str) -> dict[str,int]:
     character_counter = {}
     for character in text:
-        character_low = character.lower()
-        if character_low not in character_counter:
-            character_counter[character_low] = 1
-        else:
-            character_counter[character_low] += 1
+        if character.isalpha():
+            character_low = character.lower()
+            character_counter[character_low] = character_counter.get(character_low, 0) + 1           
     return character_counter
 
-def sorted_list (dict):
-    list = []
-    for character in dict:
-        dict_zalupka = {"name":0, "num":0}
-        dict_zalupka["name"] = character
-        dict_zalupka["num"] = dict[character]
-        list.append(dict_zalupka)
-    def key_for_sort (dict):
-        return dict["num"]
-    list.sort(reverse=True, key=key_for_sort)
-    return list
+
+
+
+def from_dict_to_sorted_list (data: dict[str,int]) -> list[tuple[str,int]]:
+    print(data.items())
+    def key_for_sort (data1: tuple):
+        return data1[1]
+    sorted_list = sorted(data.items(),key=key_for_sort, reverse=True)
+    return sorted_list
 
 
 
