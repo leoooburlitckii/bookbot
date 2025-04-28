@@ -9,9 +9,21 @@ def main():
     text = get_book_text(book_path)
     num_words = count_of_words(text)
     num_symbols = number_of_each_character(text)
-    print(f"{num_words} words found in the document")
-    print(num_symbols)
-    print(sorted_list(num_symbols))
+    list_with_characters = sorted_list(num_symbols)
+    
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {book_path}")
+    print("----------- Word Count ----------")
+    print(f"Found {num_words} total words")
+    print("--------- Character Count -------")
+    for i in range(len(list_with_characters)):
+        a = list_with_characters[i]["name"]
+        b = list_with_characters[i]["num"]
+        if a.isalpha():
+            print(f"{a}: {b}")
+    print("============= END ===============")
+
+    
 
 
 
