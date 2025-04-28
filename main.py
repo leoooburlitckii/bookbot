@@ -1,3 +1,4 @@
+import sys
 from stats import get_book_text
 from stats import count_of_words
 from stats import number_of_each_character
@@ -5,7 +6,10 @@ from stats import sorted_list
 
 
 def main():
-    book_path = "/home/lepa/bookbot/books/frankenstein.txt"
+    if len(sys.argv) !=2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
     text = get_book_text(book_path)
     num_words = count_of_words(text)
     num_symbols = number_of_each_character(text)
